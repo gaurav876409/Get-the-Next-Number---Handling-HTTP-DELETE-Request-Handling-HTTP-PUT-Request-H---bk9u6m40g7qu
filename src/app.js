@@ -10,7 +10,7 @@ app.use(express.json());
 app.get('/api/get-next-num', (req, res) => {
     const { num } = req.body;
   
-    if (isNaN(num)) {
+    if (isNaN(num) || !Number.isInteger(num)) {
       return res.status(404).json({
         message: 'Invalid number provided!',
         status: 'failure',
@@ -25,6 +25,25 @@ app.get('/api/get-next-num', (req, res) => {
     });
   });
   
+
+// app.get('/api/get-next-num', (req, res) => {
+//   const { num } = req.body;
+
+//   if (!Number.isInteger(num)) {
+//     return res.status(400).json({
+//       message: 'Invalid number provided!',
+//       status: 'failure',
+//     });
+//   }
+
+//   const nextNumber = num + 1;
+
+//   res.status(200).json({
+//     message: nextNumber,
+//     status: 'success',
+//   });
+// });
+
 
 
 module.exports = app;
