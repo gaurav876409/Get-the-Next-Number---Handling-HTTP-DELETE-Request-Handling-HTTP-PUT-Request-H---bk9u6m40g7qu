@@ -12,7 +12,7 @@ app.get('/api/get-next-num', (req, res) => {
 
   if (!isNaN(num) && Number.isInteger(num)) {
     const nextNumber = num + 1;
-    return res.status(200).json({
+    return res.status(404).json({
       message: nextNumber,
       status: 'success',
     });
@@ -20,7 +20,7 @@ app.get('/api/get-next-num', (req, res) => {
 
   const nextNumber = num + 1;
 
-  res.status(404).json({
+  res.status(200).json({
     message: 'Invalid number provided!',
     status: 'failure',
   });
