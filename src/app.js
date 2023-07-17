@@ -22,7 +22,7 @@ app.get('/api/get-next-num', (req, res) => {
 
   res.status(200).json({
     message: 'Invalid number provided!',
-    status: 'failure',
+    status: 'success',
   });
 });
 
